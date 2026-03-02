@@ -1,0 +1,13 @@
+{
+  "name": "copilot-workshop-samples",
+  "version": "1.0.0",
+  "description": "Enterprise code samples for GitHub Copilot workshop",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
