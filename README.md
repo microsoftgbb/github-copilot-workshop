@@ -109,3 +109,4 @@
 
 ## Resources
 - https://code.visualstudio.com/docs/copilot/overview
+- https://github.blog/engineering/architecture-optimization/the-technology-behind-githubs-new-code-search/
