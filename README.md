@@ -106,3 +106,6 @@
     ├── prompts/                          # Reusable prompt files
     └── agents/                           # Custom agent definitions
 ```
+
+## Resources
+- https://code.visualstudio.com/docs/copilot/overview
