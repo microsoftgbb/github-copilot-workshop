@@ -1,0 +1,140 @@
+/* ── Module page layout ─────────────────────────────────────────────────── */
+.module-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .module-layout { grid-template-columns: 1fr; }
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.module-sidebar {
+  position: sticky;
+  top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.module-meta {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.module-meta dt { color: var(--color-text-muted); font-size: 0.75rem; text-transform: uppercase; }
+.module-meta dd { font-weight: 500; }
+
+/* ── Module navigation ───────────────────────────────────────────────────── */
+.module-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+.nav-btn {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.nav-btn:hover:not(:disabled) { background: #21262d; }
+.nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Back link ───────────────────────────────────────────────────────────── */
+.back-link {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--color-text); text-decoration: none; }
+
+/* ── README content typography ───────────────────────────────────────────── */
+.readme-content { line-height: 1.7; }
+.readme-content h1 { font-size: 1.8rem; margin-bottom: 1rem; padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border); }
+.readme-content h2 { font-size: 1.3rem; margin-top: 2rem; margin-bottom: 0.75rem;
+  padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-border); }
+.readme-content h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.readme-content p  { margin-bottom: 1rem; }
+.readme-content ul,
+.readme-content ol { margin: 0 0 1rem 1.5rem; }
+.readme-content li { margin-bottom: 0.3rem; }
+.readme-content blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.readme-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.readme-content th, .readme-content td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.readme-content th { background: var(--color-surface); font-weight: 600; }
+.readme-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: rgba(110,118,129,0.15);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+}
+.readme-content pre {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+.readme-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+/* ── Code files section ──────────────────────────────────────────────────── */
+.section-heading {
+  font-size: 1.1rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.code-file-block {
+  margin-bottom: 1.5rem;
+}
+.code-file-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+.code-file-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+.code-file-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  white-space: pre;
+}
