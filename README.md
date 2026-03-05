@@ -6,6 +6,29 @@
 
 ---
 
+## About This Repository
+
+This repository is a **full-day, hands-on GitHub Copilot Enterprise workshop** designed to bring enterprise development teams from zero to proficient with GitHub Copilot in a single day.
+
+### What It Contains
+
+- **Six structured learning modules** covering the entire Copilot feature surface — from inline code completions and Chat to Agent mode and custom agents
+- **Enterprise-grade code samples** in both **Java 17 (Spring Boot)** and **JavaScript (Node.js / Express)** that mirror real production patterns
+- **Hands-on exercises** with starter stubs so participants learn by doing, not just watching
+- **Live Copilot customization config** under `.github/` (custom instructions, prompt files, and agent definitions) that participants use and extend during Module 4 and 5
+
+### Why It's Valuable
+
+| Benefit | Detail |
+|---------|--------|
+| 🚀 **Accelerate adoption** | Takes teams from "never used Copilot" to confidently using inline completions, Chat, Agent mode, and custom agents in one day |
+| 🏢 **Enterprise-ready content** | Covers security, privacy guarantees, IP indemnity, policy management, and audit logs — the questions every enterprise stakeholder asks |
+| ⚙️ **Customization mastery** | Teaches teams to encode their own coding standards into Copilot via `.github/copilot-instructions.md`, path-specific instruction files, and reusable prompt files |
+| 🤖 **Agent orchestration** | Hands-on coverage of custom agents, subagent handoffs, and multi-step autonomous workflows — the cutting-edge of AI-assisted development |
+| 📏 **Proven ROI baseline** | Grounded in research showing developers complete tasks **up to 55% faster** with Copilot, giving teams a concrete value benchmark |
+
+---
+
 ## Schedule
 
 | Time | Module | Duration | Format |
