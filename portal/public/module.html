@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module &mdash; GitHub Copilot Workshop</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/module.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="back-link" aria-label="Back to all modules">&larr; All Modules</a>
+      <h1 class="header-title" id="module-title">Loading&hellip;</h1>
+    </div>
+  </header>
+
+  <main class="module-layout">
+    <aside class="module-sidebar">
+      <div class="module-meta" id="module-meta"></div>
+
+      <div class="language-toggle" role="group" aria-label="Language filter">
+        <button class="lang-btn active" data-lang="">All</button>
+        <button class="lang-btn" data-lang="javascript">JavaScript</button>
+        <button class="lang-btn" data-lang="java">Java</button>
+      </div>
+
+      <nav class="module-nav" aria-label="Module navigation">
+        <button id="btn-prev" class="nav-btn" disabled>&larr; Previous</button>
+        <button id="btn-next" class="nav-btn" disabled>Next &rarr;</button>
+      </nav>
+    </aside>
+
+    <div class="module-body">
+      <div id="loading" class="loading-state" aria-live="polite">Loading module&hellip;</div>
+      <div id="error-message" class="error-state hidden" role="alert"></div>
+
+      <article id="readme-content" class="readme-content hidden"></article>
+
+      <section id="code-files-section" class="code-files-section hidden">
+        <h2 class="section-heading">Exercise Files</h2>
+        <div id="code-files"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; GitHub &mdash; GitHub Copilot Workshop Portal</p>
+  </footer>
+
+  <script type="module" src="/js/module.js"></script>
+</body>
+</html>
