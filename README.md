@@ -1,7 +1,7 @@
 # GitHub Copilot Enterprise Workshop
 
 > **Audience:** Enterprise developers and technical resources  
-> **Duration:** Full day (9:00 AM - 4:00 PM)  
+> **Duration:** Full day (9:00 AM - 4:15 PM)  
 > **Prerequisites:** VS Code installed, GitHub Copilot license (Business/Enterprise), GitHub.com account  
 
 ---
@@ -11,15 +11,15 @@
 | Time | Module | Duration | Format |
 |------|--------|----------:|--------|
 | 9:00 - 9:15 | [Welcome & Foundations](modules/module-00-welcome/) | 15 min | Presentation |
-| 9:15 - 10:00 | [Module 1: Copilot in VS Code - Core Experience](modules/module-01-core-experience/) | 45 min | Demo + Hands-on |
-| 10:00 - 10:15 | Break | 15 min | |
-| 10:15 - 11:15 | [Module 2: Copilot Chat - Deep Dive](modules/module-02-chat-deep-dive/) | 60 min | Demo + Hands-on |
-| 11:15 - 12:00 | [Module 3: Copilot on GitHub.com (GHEC)](modules/module-03-copilot-on-github/) | 45 min | Demo + Hands-on |
-| 12:00 - 1:00 | Lunch | 60 min | |
-| 1:00 - 2:00 | [Module 4: Customization - Instructions & Prompt Files](modules/module-04-customization/) | 60 min | Demo + Hands-on |
-| 2:00 - 2:15 | Break | 15 min | |
-| 2:15 - 3:30 | [Module 5: Agent Mode & Custom Agents](modules/module-05-agents/) | 75 min | Demo + Hands-on |
-| 3:30 - 4:00 | [Wrap-up, Q&A & Next Steps](modules/module-06-wrapup/) | 30 min | Discussion |
+| 9:15 - 10:15 | [Module 1: Copilot in VS Code - Core Experience](modules/module-01-core-experience/) | 60 min | Demo + Hands-on |
+| 10:15 - 10:30 | Break | 15 min | |
+| 10:30 - 11:30 | [Module 2: Copilot Chat - Deep Dive](modules/module-02-chat-deep-dive/) | 60 min | Demo + Hands-on |
+| 11:30 - 12:15 | [Module 3: Copilot on GitHub.com (GHEC)](modules/module-03-copilot-on-github/) | 45 min | Demo + Hands-on |
+| 12:15 - 1:15 | Lunch | 60 min | |
+| 1:15 - 2:15 | [Module 4: Customization - Instructions & Prompt Files](modules/module-04-customization/) | 60 min | Demo + Hands-on |
+| 2:15 - 2:30 | Break | 15 min | |
+| 2:30 - 3:45 | [Module 5: Agent Mode & Custom Agents](modules/module-05-agents/) | 75 min | Demo + Hands-on |
+| 3:45 - 4:15 | [Wrap-up, Q&A & Next Steps](modules/module-06-wrapup/) | 30 min | Discussion |
 
 ---
 
@@ -30,11 +30,13 @@
 - Identify the different Copilot plans (Business vs Enterprise) and their capabilities
 - Understand Copilot's privacy, security, and IP indemnity guarantees for enterprise use
 
-### Module 1: Copilot in VS Code - Core Experience (45 min)
+### Module 1: Copilot in VS Code - Core Experience (60 min)
 - Receive and accept inline code suggestions using Tab, partial accept, and next edit suggestions
 - Write effective comment-driven prompts that produce accurate code completions
 - Navigate alternative suggestions and understand when to accept, modify, or reject them
 - Apply Copilot code suggestions to real enterprise tasks: CRUD operations, data transformations, and boilerplate reduction
+- Use GitHub Copilot on GitHub.com to generate pull request summaries and request AI-powered code reviews
+- Assign issues to the Copilot Coding Agent and review its autonomously generated pull requests
 
 ### Module 2: Copilot Chat - Deep Dive (60 min)
 - Use Chat participants (`@workspace`, `@terminal`, `@github`), slash commands, and chat variables to craft precise prompts
