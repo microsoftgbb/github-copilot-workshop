@@ -109,5 +109,6 @@
 
 ## Resources
 - https://code.visualstudio.com/docs/copilot/overview
+- https://github.com/github/awesome-copilot/
 - https://github.blog/engineering/architecture-optimization/the-technology-behind-githubs-new-code-search/
 - https://speckit.org/
