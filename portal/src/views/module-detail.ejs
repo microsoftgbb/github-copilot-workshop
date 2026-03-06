@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+  <a href="/modules" class="back-link">&#8592; All Modules</a>
+  <h1><%= module.title %></h1>
+  <div class="detail-meta">
+    <span class="badge badge-number">Module <%= module.number.toString().padStart(2, '0') %></span>
+    <span class="badge badge-duration">&#9201; <%= module.duration %> min</span>
+    <span class="badge badge-format"><%= module.format %></span>
+    <% if (!module.optional) { %>
+    <span class="badge badge-required">Always Included</span>
+    <% } %>
+  </div>
+</div>
+
+<div class="detail-grid">
+  <div class="detail-main">
+    <div class="detail-card">
+      <h2>Description</h2>
+      <p><%= module.description %></p>
+    </div>
+
+    <div class="detail-card">
+      <h2>Learning Objectives</h2>
+      <ul class="objectives-list">
+        <% module.objectives.forEach(function(obj) { %>
+        <li>
+          <span class="check-icon">&#10003;</span>
+          <%= obj %>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="detail-sidebar">
+    <div class="detail-card">
+      <h3>Module Info</h3>
+      <dl class="info-list">
+        <dt>Duration</dt>
+        <dd><%= module.duration %> minutes</dd>
+        <dt>Format</dt>
+        <dd><%= module.format %></dd>
+        <dt>Required</dt>
+        <dd><%= module.optional ? 'Optional' : 'Always included' %></dd>
+      </dl>
+    </div>
+
+    <% if (module.languages.length > 0) { %>
+    <div class="detail-card">
+      <h3>Supported Languages</h3>
+      <div class="lang-tags">
+        <% module.languages.forEach(function(lang) { %>
+        <span class="lang-tag lang-tag-large"><%= lang %></span>
+        <% }); %>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="detail-card">
+      <a href="/agenda?selectedModules=<%= module.id %>&language=javascript" class="btn btn-primary" style="width:100%;text-align:center;display:block;">
+        Add to Agenda &#8594;
+      </a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
