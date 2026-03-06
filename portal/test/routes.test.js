@@ -30,4 +30,16 @@ describe('routes', () => {
       .query({ selectedModules: 'module-01-core-experience', language: 'javascript' });
     expect(res.statusCode).toBe(200);
   });
+
+  test('POST /agenda should redirect to GET /agenda', async () => {
+    const res = await request(app)
+      .post('/agenda')
+      .send('language=java&selectedModules=module-01-core-experience')
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+
+    expect(res.statusCode).toBe(302);
+    expect(res.headers.location).toContain('/agenda');
+    expect(res.headers.location).toContain('language=java');
+    expect(res.headers.location).toContain('selectedModules=module-01-core-experience');
+  });
 });

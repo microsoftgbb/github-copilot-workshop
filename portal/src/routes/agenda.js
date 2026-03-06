@@ -5,12 +5,15 @@ const { getAllModules, getModuleById } = require('../services/moduleService');
 
 const router = Router();
 
+const VALID_LANGUAGES = new Set(['javascript', 'java']);
+const sanitizeLanguage = (raw) => VALID_LANGUAGES.has(raw) ? raw : 'javascript';
+
 /**
  * GET /agenda - Show personalized agenda from query params.
  * Query params: selectedModules (string or array), language
  */
 router.get('/', (req, res) => {
-  const { language = 'javascript' } = req.query;
+  const language = sanitizeLanguage(req.query.language ?? 'javascript');
   const allModules = getAllModules();
 
   // Normalize selectedModules to an array
@@ -44,7 +47,8 @@ router.get('/', (req, res) => {
  * POST /agenda - Save selections and redirect to GET /agenda with query params.
  */
 router.post('/', (req, res) => {
-  const { language = 'javascript', selectedModules } = req.body;
+  const { selectedModules } = req.body;
+  const language = sanitizeLanguage(req.body.language ?? 'javascript');
 
   // Persist language preference in session
   if (req.session) {

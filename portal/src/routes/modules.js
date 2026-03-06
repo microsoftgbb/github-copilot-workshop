@@ -22,7 +22,8 @@ router.get('/:id', (req, res, next) => {
   if (!module) {
     return next(new NotFoundError(`Module '${req.params.id}' not found`));
   }
-  res.render('module-detail', { title: module.title, module });
+  const language = req.session?.language ?? 'javascript';
+  res.render('module-detail', { title: module.title, module, language });
 });
 
 module.exports = { router };

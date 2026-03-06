@@ -11,6 +11,9 @@ class NotFoundError extends Error {
     super(message);
     this.name = 'NotFoundError';
     this.statusCode = 404;
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
 
@@ -25,6 +28,9 @@ class ValidationError extends Error {
     super(message);
     this.name = 'ValidationError';
     this.statusCode = 400;
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
 

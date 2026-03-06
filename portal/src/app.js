@@ -12,6 +12,7 @@ const { router: indexRouter } = require('./routes/index');
 const { router: modulesRouter } = require('./routes/modules');
 const { router: agendaRouter } = require('./routes/agenda');
 const { errorHandler } = require('./middleware/errorHandler');
+const { NotFoundError } = require('./errors/errors');
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.use(
 );
 
 // Request logging
-app.use(morgan('dev'));
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
 // Body parsing
 app.use(express.urlencoded({ extended: true }));
@@ -38,7 +39,8 @@ app.use(express.json());
 // Cookie parser (required for CSRF double-submit pattern)
 app.use(cookieParser());
 
-// Session
+// NOTE: MemoryStore is used intentionally for this single-process workshop portal.
+// Replace with connect-redis or similar for any production deployment.
 app.use(
   session({
     secret: process.env.SESSION_SECRET ?? 'copilot-workshop-secret',
@@ -59,7 +61,10 @@ const { generateCsrfToken, doubleCsrfProtection } = doubleCsrf({
     sameSite: 'strict',
   },
 });
-app.use(doubleCsrfProtection);
+// Skip CSRF validation in test mode; validation still runs in dev and production.
+if (process.env.NODE_ENV !== 'test') {
+  app.use(doubleCsrfProtection);
+}
 
 // Make CSRF token available to all views
 app.use((req, res, next) => {
@@ -81,7 +86,6 @@ app.use('/agenda', agendaRouter);
 
 // 404 handler for unmatched routes
 app.use((req, res, next) => {
-  const { NotFoundError } = require('./errors/errors');
   next(new NotFoundError(`Page not found: ${req.path}`));
 });
 

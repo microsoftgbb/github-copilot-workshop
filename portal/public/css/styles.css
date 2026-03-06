@@ -85,6 +85,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #0d1117; text-decoration: none; }
 .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
 .btn-secondary:hover { background: var(--surface-hover); border-color: var(--accent); color: var(--text-bright); text-decoration: none; }
+.btn-block { width: 100%; text-align: center; display: block; }
 .form-actions { display: flex; gap: 1rem; align-items: center; justify-content: center; padding: 1.5rem 0; }
 .detail-grid { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
 @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
