@@ -32,9 +32,18 @@ describe('routes', () => {
   });
 
   test('POST /agenda should redirect to GET /agenda', async () => {
-    const res = await request(app)
+    // First fetch the home page to obtain the CSRF cookie and token
+    const agent = request.agent(app);
+    const getRes = await agent.get('/');
+    expect(getRes.statusCode).toBe(200);
+
+    // Extract CSRF token from the rendered form
+    const tokenMatch = getRes.text.match(/name="_csrf"\s+value="([^"]+)"/);
+    const csrfToken = tokenMatch?.[1] ?? '';
+
+    const res = await agent
       .post('/agenda')
-      .send('language=java&selectedModules=module-01-core-experience')
+      .send(`language=java&selectedModules=module-01-core-experience&_csrf=${encodeURIComponent(csrfToken)}`)
       .set('Content-Type', 'application/x-www-form-urlencoded');
 
     expect(res.statusCode).toBe(302);

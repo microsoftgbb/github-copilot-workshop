@@ -61,10 +61,7 @@ const { generateCsrfToken, doubleCsrfProtection } = doubleCsrf({
     sameSite: 'strict',
   },
 });
-// Skip CSRF validation in test mode; validation still runs in dev and production.
-if (process.env.NODE_ENV !== 'test') {
-  app.use(doubleCsrfProtection);
-}
+app.use(doubleCsrfProtection);
 
 // Make CSRF token available to all views
 app.use((req, res, next) => {
