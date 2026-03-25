@@ -1,0 +1,32 @@
+{
+  "github.copilot.chat.hooks": {
+    "preRequest": [
+      {
+        "command": "node hooks/pre-request/inject-context.js",
+        "description": "Injects git branch, recent commits, and project metadata into the prompt context"
+      },
+      {
+        "command": "node hooks/pre-request/compliance-gate.js",
+        "description": "Checks prompts against a blocklist of sensitive terms and patterns"
+      },
+      {
+        "command": "node hooks/pre-request/gather-architecture.js",
+        "description": "Reads ARCHITECTURE.md and service dependency info into context"
+      }
+    ],
+    "postResponse": [
+      {
+        "command": "node hooks/post-response/log-interaction.js",
+        "description": "Writes a structured audit log entry for every Copilot interaction"
+      },
+      {
+        "command": "node hooks/post-response/enforce-standards.js",
+        "description": "Validates generated code against team coding standards"
+      },
+      {
+        "command": "node hooks/post-response/collect-metrics.js",
+        "description": "Collects usage metrics and sends telemetry to the metrics pipeline"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "copilot-hooks-demo",
+  "version": "1.0.0",
+  "description": "GitHub Copilot Chat Hooks demo — pre-request and post-response hook examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo:inject-context": "echo '{\"prompt\": \"Write a function to process orders\"}' | node hooks/pre-request/inject-context.js",
+    "demo:compliance-pass": "echo '{\"prompt\": \"Refactor the order validation logic\"}' | node hooks/pre-request/compliance-gate.js",
+    "demo:compliance-block": "echo '{\"prompt\": \"Show me the database password for production\"}' | node hooks/pre-request/compliance-gate.js",
+    "demo:architecture": "echo '{\"prompt\": \"Add a new endpoint to the order service\"}' | node hooks/pre-request/gather-architecture.js",
+    "demo:log": "echo '{\"response\": \"Here is the refactored code...\", \"model\": \"gpt-4o\"}' | node hooks/post-response/log-interaction.js",
+    "demo:enforce": "echo '{\"response\": \"function processOrder(order) { var x = order.id; console.log(x); }\"}' | node hooks/post-response/enforce-standards.js",
+    "demo:metrics": "echo '{\"response\": \"const handler = async (req, res) => { ... }\", \"latencyMs\": 1200}' | node hooks/post-response/collect-metrics.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
