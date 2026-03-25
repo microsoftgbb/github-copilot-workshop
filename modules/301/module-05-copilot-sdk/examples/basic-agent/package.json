@@ -1,0 +1,16 @@
+{
+  "name": "copilot-sdk-basic-agent",
+  "version": "1.0.0",
+  "description": "Minimal GitHub Copilot SDK agent — create session, send prompts, stream responses",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@github/copilot-sdk": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

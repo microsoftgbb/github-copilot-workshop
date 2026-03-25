@@ -259,19 +259,33 @@ One of Copilot's biggest challenges in enterprise environments is understanding 
 
 ## Module 5: Copilot Advanced Capabilities (10 min)
 
-### Leveraging Copilot SDK
+### Leveraging the Copilot SDK
 
-- **Copilot Extensions** — Build custom Copilot extensions that integrate domain-specific tools and knowledge:
-  - Connect internal APIs, databases, or documentation systems
-  - Create slash commands for team-specific workflows
-  - Surface internal knowledge bases directly in the Copilot chat experience
-- **Copilot in GitHub Actions** — Use Copilot to generate and review CI/CD workflows:
-  - Generate workflow files from natural language descriptions
-  - Review existing workflows for best practices and security
-- **Copilot API (Public Preview)** — Programmatic access to Copilot capabilities:
-  - Integrate Copilot into custom developer tools and internal platforms
-  - Build automated code review pipelines
-  - Create custom IDE integrations beyond VS Code
+The [GitHub Copilot SDK](https://github.com/github/copilot-sdk) (`@github/copilot-sdk`) lets you embed Copilot's agent runtime — the same engine behind Copilot CLI — into your own applications. Available for Node.js, Python, Go, .NET, and Java (Technical Preview).
+
+- **CopilotClient & Sessions** — Programmatic access to the Copilot agent runtime:
+  ```javascript
+  import { CopilotClient, approveAll } from "@github/copilot-sdk";
+  const client = new CopilotClient();
+  await client.start();
+  const session = await client.createSession({ model: "gpt-5", onPermissionRequest: approveAll });
+  const response = await session.sendAndWait({ prompt: "Analyze this codebase" });
+  ```
+- **Custom Tools** — Register tools the agent can call back into your code using `defineTool` with Zod schemas:
+  - Query internal APIs, databases, or monitoring systems
+  - Trigger workflows (deployments, ticket creation, notifications)
+  - The agent decides which tools to call based on the prompt
+- **Session Hooks** — Intercept and control agent behavior at lifecycle points:
+  - `onPreToolUse` — Allow/deny tool calls, modify arguments, inject context
+  - `onPostToolUse` — Process results, add context, audit log
+  - `onUserPromptSubmitted` — Modify prompts before processing
+  - `onSessionStart` / `onSessionEnd` — Initialize and clean up
+  - `onErrorOccurred` — Retry, skip, or abort on errors
+- **Permission Handling** — Fine-grained governance over agent actions:
+  - Approve/deny per action type: `shell`, `write`, `read`, `custom-tool`, `url`
+  - Block shell commands, restrict file writes to specific directories
+  - Use `approveAll` for demos, custom handler for production
+- **BYOK (Bring Your Own Key)** — Use the SDK with your own Azure OpenAI, Anthropic, or local models (Ollama) without a GitHub Copilot subscription
 
 ### Chat Hooks and Diagnostics
 
@@ -290,9 +304,11 @@ One of Copilot's biggest challenges in enterprise environments is understanding 
 
 **Demo Ideas:**
 
-- Show Copilot reading diagnostic errors and auto-fixing them
-- Walk through the Copilot metrics dashboard and what signals to look for
-- Demo a Copilot extension or describe the architecture for building one
+- Show the basic agent example (~15 lines) embedding Copilot in a standalone script
+- Demo the custom tools agent: the agent calls back into your code to query service health
+- Show `onPreToolUse` hook blocking shell commands or injecting filters
+- Walk through the permission handler denying writes outside `src/`
+- If the audience uses Azure, show the BYOK config with Azure OpenAI
 
 ---
 

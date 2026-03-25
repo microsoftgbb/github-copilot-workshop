@@ -1,0 +1,17 @@
+{
+  "name": "copilot-sdk-custom-tools-agent",
+  "version": "1.0.0",
+  "description": "Copilot SDK agent with custom tools, session hooks, and permission handling",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@github/copilot-sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
