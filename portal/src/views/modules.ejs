@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+  <h1>Workshop Modules</h1>
+  <p>All <%= modules.length %> modules available in this workshop</p>
+</div>
+
+<div class="modules-grid">
+  <% modules.forEach(function(module) { %>
+  <div class="module-card">
+    <div class="module-card-header">
+      <div class="module-badges">
+        <span class="badge badge-number">Module <%= module.number.toString().padStart(2, '0') %></span>
+        <% if (!module.optional) { %>
+        <span class="badge badge-required">Always Included</span>
+        <% } %>
+      </div>
+      <div class="module-meta">
+        <span class="badge badge-duration">&#9201; <%= module.duration %> min</span>
+        <span class="badge badge-format"><%= module.format %></span>
+      </div>
+    </div>
+    <h3 class="module-title">
+      <a href="/modules/<%= module.id %>"><%= module.title %></a>
+    </h3>
+    <p class="module-description"><%= module.description.substring(0, 150) %>...</p>
+    <div class="module-objectives">
+      <h4>Objectives</h4>
+      <ul>
+        <% module.objectives.slice(0, 3).forEach(function(obj) { %>
+        <li><%= obj %></li>
+        <% }); %>
+        <% if (module.objectives.length > 3) { %>
+        <li class="more-objectives">+<%= module.objectives.length - 3 %> more...</li>
+        <% } %>
+      </ul>
+    </div>
+    <a href="/modules/<%= module.id %>" class="btn btn-secondary">View Details &#8594;</a>
+  </div>
+  <% }); %>
+</div>
+
+<%- include('partials/footer') %>
