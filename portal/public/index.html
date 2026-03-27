@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot Workshop</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="header-logo">&#129302;</span>
+      <h1 class="header-title">GitHub Copilot Workshop</h1>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="controls">
+      <h2 class="controls-label">Filter by language</h2>
+      <div class="language-toggle" role="group" aria-label="Language filter">
+        <button class="lang-btn active" data-lang="">All</button>
+        <button class="lang-btn" data-lang="javascript">JavaScript</button>
+        <button class="lang-btn" data-lang="java">Java</button>
+      </div>
+    </section>
+
+    <section id="module-grid-section">
+      <div id="loading" class="loading-state" aria-live="polite">Loading modules&hellip;</div>
+      <div id="error-message" class="error-state hidden" role="alert"></div>
+      <ul id="module-grid" class="module-grid" aria-label="Workshop modules"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; GitHub &mdash; GitHub Copilot Workshop Portal</p>
+  </footer>
+
+  <script type="module" src="/js/home.js"></script>
+</body>
+</html>
