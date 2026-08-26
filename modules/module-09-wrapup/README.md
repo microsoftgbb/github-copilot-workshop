@@ -23,6 +23,9 @@ By the end of this section, you will be able to:
 | **Module 3: GitHub.com** | PR summaries, AI code review, repository search, Copilot coding agent |
 | **Module 4: Customization** | Custom instructions (repo-wide + path-specific), reusable prompt files |
 | **Module 5: Agents** | Agent mode, custom agents, handoffs, subagents, orchestration patterns |
+| **Module 6: Code Dev & Scaffolding** | Comment/chat/agent-driven scaffolding, `#codebase` grounding, scaffolding prompt files |
+| **Module 7: Debugging & Defect RCA** | Stack trace/log-driven RCA, `@terminal`, root-cause-first prompting, Agent mode fix-and-verify loop |
+| **Module 8: Unit Test Framework & Generation** | TDD Red-Green-Refactor, BDD feature-to-implementation, Spec-Driven Development, documentation generation |
 
 ---
 

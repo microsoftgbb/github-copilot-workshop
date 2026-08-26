@@ -1,0 +1,14 @@
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+	at com.enterprise.inventory.InventoryReconciler.findVariances(InventoryReconciler.java:47)
+	at com.enterprise.inventory.WarehouseBatchJob.reconcileNightlyCounts(WarehouseBatchJob.java:62)
+	at com.enterprise.inventory.WarehouseBatchJob.run(WarehouseBatchJob.java:29)
+	at com.enterprise.inventory.WarehouseBatchJob.main(WarehouseBatchJob.java:15)
+
+--- Application log (excerpt, INFO level) leading up to the failure ---
+2026-08-21 02:14:01.001 INFO  WarehouseBatchJob      - Starting nightly reconciliation for warehouse WH-12
+2026-08-21 02:14:01.004 INFO  WarehouseBatchJob      - Loaded 1,204 registered SKUs from expected-stock feed
+2026-08-21 02:14:01.006 INFO  WarehouseBatchJob      - Loaded 1,211 physical counts from scanner export
+2026-08-21 02:14:01.010 INFO  InventoryReconciler    - Reconciling SKU SKU-10021: expected=48, counted=47, variance=1
+2026-08-21 02:14:01.011 INFO  InventoryReconciler    - Reconciling SKU SKU-10022: expected=12, counted=12, variance=0
+2026-08-21 02:14:01.013 INFO  InventoryReconciler    - Reconciling SKU SKU-99871: expected=null, counted=3, variance=?
+2026-08-21 02:14:01.013 ERROR WarehouseBatchJob      - Nightly reconciliation failed for warehouse WH-12

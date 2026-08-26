@@ -564,4 +564,4 @@ Test it:
 
 ---
 
-**Next:** [Wrap-up, Q&A & Next Steps →](../module-06-wrapup/)
+**Next:** [Module 6 - Code Dev & Scaffolding →](../module-06-code-dev-scaffolding/)

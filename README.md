@@ -1,12 +1,14 @@
 # GitHub Copilot Enterprise Workshop
 
 > **Audience:** Enterprise developers and technical resources  
-> **Duration:** Full day (9:00 AM - 4:00 PM)  
+> **Duration:** Two days (9:00 AM - 4:00 PM each day)  
 > **Prerequisites:** VS Code installed, GitHub Copilot license (Business/Enterprise), GitHub.com account  
 
 ---
 
 ## Schedule
+
+### Day 1
 
 | Time | Module | Duration | Format |
 |------|--------|----------:|--------|
@@ -19,7 +21,20 @@
 | 1:00 - 2:00 | [Module 4: Customization - Instructions & Prompt Files](modules/module-04-customization/) | 60 min | Demo + Hands-on |
 | 2:00 - 2:15 | Break | 15 min | |
 | 2:15 - 3:30 | [Module 5: Agent Mode & Custom Agents](modules/module-05-agents/) | 75 min | Demo + Hands-on |
-| 3:30 - 4:00 | [Wrap-up, Q&A & Next Steps](modules/module-06-wrapup/) | 30 min | Discussion |
+| 3:30 - 4:00 | Day 1 recap & Q&A | 30 min | Discussion |
+
+### Day 2
+
+| Time | Module | Duration | Format |
+|------|--------|----------:|--------|
+| 9:00 - 10:00 | [Module 6: Code Dev & Scaffolding](modules/module-06-code-dev-scaffolding/) | 60 min | Demo + Hands-on |
+| 10:00 - 10:15 | Break | 15 min | |
+| 10:15 - 11:15 | [Module 7: Debugging & Defect RCA](modules/module-07-debugging-defect-rca/) | 60 min | Demo + Hands-on |
+| 11:15 - 12:00 | [Module 8: Unit Test Framework & Generation](modules/module-08-unit-test-generation/) (part 1) | 45 min | Demo + Hands-on |
+| 12:00 - 1:00 | Lunch | 60 min | |
+| 1:00 - 1:30 | [Module 8: Unit Test Framework & Generation](modules/module-08-unit-test-generation/) (part 2) | 30 min | Demo + Hands-on |
+| 1:30 - 1:45 | Break | 15 min | |
+| 1:45 - 3:30 | [Wrap-up, Q&A & Next Steps](modules/module-09-wrapup/) | 105 min | Discussion |
 
 ---
 
@@ -61,7 +76,26 @@
 - Understand and configure subagents for parallel task delegation and context isolation
 - Build an orchestration pattern using coordinator and worker agents with the `agents` property
 
-### Wrap-up, Q&A & Next Steps (30 min)
+### Module 6: Code Dev & Scaffolding (60 min)
+- Use Copilot to write new code and reduce boilerplate through comment-driven and chat-driven development
+- Scaffold a complete, multi-file feature (controller, service, repository, DTO/model, tests) in one guided pass
+- Use `#codebase` and workspace context so generated code matches existing project conventions
+- Build a reusable prompt file that standardizes how your team scaffolds new components
+
+### Module 7: Debugging & Defect RCA (60 min)
+- Use Copilot to interpret stack traces, compiler errors, and runtime logs to locate the root cause of a defect
+- Distinguish compile-time errors, runtime exceptions, and silent logic defects, adapting prompts for each
+- Use `@terminal`, `#terminalLastCommand`, and pasted logs to ground Copilot's analysis in real evidence
+- Perform structured root cause analysis with Copilot, then use Agent mode to reproduce, fix, and verify a defect
+
+### Module 8: Unit Test Framework & Generation (75 min)
+- Generate unit tests that developers typically avoid writing, without sacrificing coverage quality
+- Run a Test-Driven Development (TDD) Red-Green-Refactor loop with Copilot writing tests first
+- Turn Gherkin/BDD feature files into step definitions and passing implementations with Copilot
+- Apply Spec-Driven Development (SDD): generate a plan, implementation, and tests from a written spec
+- Use Copilot to generate documentation (Javadoc/JSDoc, READMEs) alongside code and tests
+
+### Wrap-up, Q&A & Next Steps (105 min)
 - Review key takeaways and identify areas for immediate adoption
 - Understand enterprise governance: policy management, audit logs, content exclusions, and usage metrics
 - Create an action plan for rolling out Copilot customizations to your team
@@ -98,7 +132,22 @@
 │   ├── module-05-agents/
 │   │   ├── README.md                     # Module instructions
 │   │   └── exercises/README.md           # Exercise guide
-│   └── module-06-wrapup/
+│   ├── module-06-code-dev-scaffolding/
+│   │   ├── README.md                     # Module instructions
+│   │   └── exercises/                    # Hands-on scaffolding output goes here
+│   ├── module-07-debugging-defect-rca/
+│   │   ├── README.md                     # Module instructions
+│   │   └── samples/                      # Buggy code + logs/stack traces for RCA
+│   │       ├── java/InventoryReconciler.java
+│   │       ├── javascript/pricingEngine.js
+│   │       └── logs/
+│   ├── module-08-unit-test-generation/
+│   │   ├── README.md                     # Module instructions
+│   │   └── exercises/                    # TDD, BDD, and SDD starters
+│   │       ├── tdd/REQUIREMENTS.md
+│   │       ├── bdd/discount-eligibility.feature
+│   │       └── sdd/spec.md
+│   └── module-09-wrapup/
 │       └── README.md                     # Wrap-up & next steps
 └── .github/                              # Live Copilot customization config
     ├── copilot-instructions.md           # Repository-wide instructions

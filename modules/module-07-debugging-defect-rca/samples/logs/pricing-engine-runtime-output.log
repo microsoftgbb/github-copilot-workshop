@@ -1,0 +1,22 @@
+$ node checkout.js --cart cart-4471.json --promo SAVE99
+
+[checkout] loading cart cart-4471.json (3 items)
+[checkout] subtotal calculated: NaN
+[checkout] applying promo code SAVE99
+[checkout] final total: NaN
+
+--- Expected behavior ---
+[checkout] loading cart cart-4471.json (3 items)
+[checkout] subtotal calculated: 84.97
+[checkout] applying promo code SAVE99
+Uncaught PromoCodeError: Unknown promo code: SAVE99
+    at applyPromoCode (pricingEngine.js:53)
+    at calculateCheckoutTotal (pricingEngine.js:75)
+    at Object.<anonymous> (checkout.js:12)
+
+--- Notes from the on-call engineer ---
+Customer support ticket #48213: customer was charged $0.00 (NaN coerced to
+"free" by the front-end display) at checkout after entering an invalid promo
+code "SAVE99". Two separate issues seem to be happening: the total prints as
+NaN even without a promo code, AND invalid promo codes are silently accepted
+instead of being rejected.
