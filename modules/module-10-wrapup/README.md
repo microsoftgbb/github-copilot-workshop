@@ -1,4 +1,4 @@
-# Wrap-up, Q&A & Next Steps
+# Module 10: Wrap-up, Q&A & Next Steps
 
 > **Duration:** 30 minutes | **Format:** Discussion
 
@@ -26,6 +26,7 @@ By the end of this section, you will be able to:
 | **Module 6: Code Dev & Scaffolding** | Comment/chat/agent-driven scaffolding, `#codebase` grounding, scaffolding prompt files |
 | **Module 7: Debugging & Defect RCA** | Stack trace/log-driven RCA, `@terminal`, root-cause-first prompting, Agent mode fix-and-verify loop |
 | **Module 8: Unit Test Framework & Generation** | TDD Red-Green-Refactor, BDD feature-to-implementation, Spec-Driven Development, documentation generation |
+| **Module 9: Infrastructure-as-Code & Pipeline-as-Code** | Terraform scaffolding, plan review, GitHub Actions pipelines, OIDC authentication, CI/CD debugging |
 
 ---
 

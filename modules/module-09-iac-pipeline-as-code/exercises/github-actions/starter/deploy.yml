@@ -1,0 +1,38 @@
+name: Deploy Infrastructure (Module 9 starter)
+
+# TODO (Exercise 9B): use Copilot Agent mode to extend this workflow so
+# it also:
+#   1. Runs `terraform fmt -check` and `terraform validate`
+#   2. Runs `terraform plan` and posts the plan output as a PR comment
+#   3. Gates `terraform apply` behind a "production" environment,
+#      only on push to main
+#   4. Authenticates to Azure using OIDC federation (azure/login@v2 with
+#      client-id/tenant-id/subscription-id), not a stored client secret
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: modules/module-09-iac-pipeline-as-code/exercises/terraform/starter
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.5"
+
+      - name: Terraform Init
+        run: terraform init
