@@ -36,6 +36,15 @@
 | 1:30 - 1:45 | Break | 15 min | |
 | 1:45 - 3:30 | [Wrap-up, Q&A & Next Steps](modules/module-09-wrapup/) | 105 min | Discussion |
 
+### DevOps Track
+
+Standalone track for a DevOps-persona audience, run separately from the
+Day 1/2 Developer sequence above.
+
+| Time | Module | Duration | Format |
+|------|--------|----------:|--------|
+| — | [DEP-2: Infrastructure-as-Code & Pipeline-as-Code](modules/dep-track/module-01-iac-pipeline-as-code/) | 60 min | Demo + Hands-on |
+
 ---
 
 ## Learning Objectives by Module
@@ -100,6 +109,12 @@
 - Understand enterprise governance: policy management, audit logs, content exclusions, and usage metrics
 - Create an action plan for rolling out Copilot customizations to your team
 
+### DEP-2: Infrastructure-as-Code & Pipeline-as-Code (60 min)
+- Use Copilot to scaffold Terraform resources from a plain-language architecture description, grounded in existing conventions
+- Use Copilot Chat to explain a `terraform plan` diff and flag destructive changes before anyone applies
+- Use Copilot to scaffold a GitHub Actions pipeline (plan on PR, gated apply on main) with OIDC authentication
+- Debug a failing pipeline run using Copilot against real job log output
+
 ---
 
 ## Repository Structure
@@ -149,9 +164,21 @@
 │   │       └── sdd/spec.md
 │   └── module-09-wrapup/
 │       └── README.md                     # Wrap-up & next steps
+│   └── dep-track/
+│       └── module-01-iac-pipeline-as-code/
+│           ├── README.md                 # Module instructions (DevOps track)
+│           └── exercises/
+│               ├── terraform/
+│               │   ├── starter/main.tf   # Provider + resource group only
+│               │   └── solution/main.tf  # Reference solution (facilitator only)
+│               └── github-actions/
+│                   ├── starter/deploy.yml   # Checkout + init only
+│                   ├── solution/deploy.yml  # Reference pipeline (facilitator only)
+│                   └── broken/deploy.yml    # Deliberately broken run for Exercise DEP-2C
 └── .github/                              # Live Copilot customization config
     ├── copilot-instructions.md           # Repository-wide instructions
     ├── instructions/                     # Path-specific instructions
+    │   └── terraform-standards.instructions.md
     ├── prompts/                          # Reusable prompt files
     └── agents/                           # Custom agent definitions
 ```
