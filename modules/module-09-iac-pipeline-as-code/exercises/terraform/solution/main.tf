@@ -32,7 +32,7 @@ variable "owner" {
 }
 
 resource "azurerm_resource_group" "workshop" {
-  name     = "rg-copilot-workshop-dep2"
+  name     = "rg-copilot-workshop-training"
   location = var.location
 
   tags = {
@@ -41,7 +41,7 @@ resource "azurerm_resource_group" "workshop" {
   }
 }
 
-# Reference solution for Exercise DEP-2A. Do not distribute to attendees
+# Reference solution for Exercise 9A. Do not distribute to attendees
 # ahead of the exercise -- this is the instructor/facilitator answer key.
 
 resource "azurerm_service_plan" "workshop" {

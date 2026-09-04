@@ -1,7 +1,7 @@
-name: Deploy Infrastructure (DEP-2C broken -- facilitator use only)
+name: Deploy Infrastructure (Exercise 9C broken -- facilitator use only)
 
 # Facilitator use only: this is the solution workflow with one deliberate
-# error injected for Exercise DEP-2C. Copy the "Terraform Plan" step below
+# error injected for Exercise 9C. Copy the "Terraform Plan" step below
 # into a running copy of the solution workflow (or trigger this file
 # directly in a scratch branch) to reproduce the failure attendees debug.
 #
@@ -19,7 +19,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: modules/dep-track/module-01-iac-pipeline-as-code/exercises/terraform/solution
+    working-directory: modules/module-09-iac-pipeline-as-code/exercises/terraform/solution
 
 env:
   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}

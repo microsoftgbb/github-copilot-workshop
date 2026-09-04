@@ -1,4 +1,4 @@
-# DEP-2: Infrastructure-as-Code & Pipeline-as-Code
+# Module 9: Infrastructure-as-Code & Pipeline-as-Code
 
 > **Duration:** 60 minutes (20 min demo + 35 min hands-on + 5 min wrap-up)
 > **Format:** Demo + Hands-on
@@ -171,7 +171,7 @@ One continuous exercise: scaffold the infrastructure, scaffold the pipeline
 that deploys it, then debug a deliberately broken run. This mirrors how
 these two things actually depend on each other in practice.
 
-### Exercise DEP-2A: Scaffold the Infrastructure (15 min)
+### Exercise 9A: Scaffold the Infrastructure (15 min)
 
 1. Open [`exercises/terraform/starter/main.tf`](exercises/terraform/starter/main.tf). It contains only the `azurerm` provider block and a resource group.
 2. Switch to **Agent** mode.
@@ -197,7 +197,7 @@ Add the following to main.tf:
 5. Run `terraform init` and `terraform plan` (no `apply`) and review the
    plan output together as a group.
 
-### Exercise DEP-2B: Scaffold the Pipeline (15 min)
+### Exercise 9B: Scaffold the Pipeline (15 min)
 
 1. Open [`exercises/github-actions/starter/deploy.yml`](exercises/github-actions/starter/deploy.yml). It contains only a checkout + Terraform setup step.
 2. Switch to **Agent** mode.
@@ -219,7 +219,7 @@ Extend deploy.yml to:
      secret
    - Actually posts the plan as a PR comment, not just to the job log
 
-### Exercise DEP-2C: Break and Fix (5 min)
+### Exercise 9C: Break and Fix (5 min)
 
 1. The instructor introduces one deliberate error into a copy of the
    workflow (for example, a Terraform variable referenced but never
@@ -247,4 +247,4 @@ root cause and the minimal fix?
 
 ---
 
-**Next:** Wrap-up, Q&A & next steps
+**Next:** [Module 10 - Wrap-up, Q&A & Next Steps →](../module-10-wrapup/)

@@ -26,7 +26,7 @@ variable "environment" {
 }
 
 resource "azurerm_resource_group" "workshop" {
-  name     = "rg-copilot-workshop-dep2"
+  name     = "rg-copilot-workshop-training"
   location = var.location
 
   tags = {
@@ -35,7 +35,7 @@ resource "azurerm_resource_group" "workshop" {
   }
 }
 
-# TODO (Exercise DEP-2A): use Copilot Agent mode to add, following the
+# TODO (Exercise 9A): use Copilot Agent mode to add, following the
 # naming/tagging/variable conventions established above:
 #   1. An azurerm_service_plan named "workshop-plan" (Linux, B1 SKU)
 #      in azurerm_resource_group.workshop

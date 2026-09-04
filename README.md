@@ -34,16 +34,9 @@
 | 12:00 - 1:00 | Lunch | 60 min | |
 | 1:00 - 1:30 | [Module 8: Unit Test Framework & Generation](modules/module-08-unit-test-generation/) (part 2) | 30 min | Demo + Hands-on |
 | 1:30 - 1:45 | Break | 15 min | |
-| 1:45 - 3:30 | [Wrap-up, Q&A & Next Steps](modules/module-09-wrapup/) | 105 min | Discussion |
-
-### DevOps Track
-
-Standalone track for a DevOps-persona audience, run separately from the
-Day 1/2 Developer sequence above.
-
-| Time | Module | Duration | Format |
-|------|--------|----------:|--------|
-| — | [DEP-2: Infrastructure-as-Code & Pipeline-as-Code](modules/dep-track/module-01-iac-pipeline-as-code/) | 60 min | Demo + Hands-on |
+| 1:45 - 2:45 | [Module 9: Infrastructure-as-Code & Pipeline-as-Code](modules/module-09-iac-pipeline-as-code/) | 60 min | Demo + Hands-on |
+| 2:45 - 3:00 | Break | 15 min | |
+| 3:00 - 3:30 | [Module 10: Wrap-up, Q&A & Next Steps](modules/module-10-wrapup/) | 30 min | Discussion |
 
 ---
 
@@ -104,16 +97,16 @@ Day 1/2 Developer sequence above.
 - Apply Spec-Driven Development (SDD): generate a plan, implementation, and tests from a written spec
 - Use Copilot to generate documentation (Javadoc/JSDoc, READMEs) alongside code and tests
 
-### Wrap-up, Q&A & Next Steps (105 min)
-- Review key takeaways and identify areas for immediate adoption
-- Understand enterprise governance: policy management, audit logs, content exclusions, and usage metrics
-- Create an action plan for rolling out Copilot customizations to your team
-
-### DEP-2: Infrastructure-as-Code & Pipeline-as-Code (60 min)
+### Module 9: Infrastructure-as-Code & Pipeline-as-Code (60 min)
 - Use Copilot to scaffold Terraform resources from a plain-language architecture description, grounded in existing conventions
 - Use Copilot Chat to explain a `terraform plan` diff and flag destructive changes before anyone applies
 - Use Copilot to scaffold a GitHub Actions pipeline (plan on PR, gated apply on main) with OIDC authentication
 - Debug a failing pipeline run using Copilot against real job log output
+
+### Module 10: Wrap-up, Q&A & Next Steps (30 min)
+- Review key takeaways and identify areas for immediate adoption
+- Understand enterprise governance: policy management, audit logs, content exclusions, and usage metrics
+- Create an action plan for rolling out Copilot customizations to your team
 
 ---
 
@@ -162,19 +155,18 @@ Day 1/2 Developer sequence above.
 │   │       ├── tdd/REQUIREMENTS.md
 │   │       ├── bdd/discount-eligibility.feature
 │   │       └── sdd/spec.md
-│   └── module-09-wrapup/
+│   ├── module-09-iac-pipeline-as-code/
+│   │   ├── README.md                     # Module instructions
+│   │   └── exercises/
+│   │       ├── terraform/
+│   │       │   ├── starter/main.tf       # Provider + resource group only
+│   │       │   └── solution/main.tf      # Reference solution (facilitator only)
+│   │       └── github-actions/
+│   │           ├── starter/deploy.yml    # Checkout + init only
+│   │           ├── solution/deploy.yml   # Reference pipeline (facilitator only)
+│   │           └── broken/deploy.yml     # Deliberately broken run for Exercise 9C
+│   └── module-10-wrapup/
 │       └── README.md                     # Wrap-up & next steps
-│   └── dep-track/
-│       └── module-01-iac-pipeline-as-code/
-│           ├── README.md                 # Module instructions (DevOps track)
-│           └── exercises/
-│               ├── terraform/
-│               │   ├── starter/main.tf   # Provider + resource group only
-│               │   └── solution/main.tf  # Reference solution (facilitator only)
-│               └── github-actions/
-│                   ├── starter/deploy.yml   # Checkout + init only
-│                   ├── solution/deploy.yml  # Reference pipeline (facilitator only)
-│                   └── broken/deploy.yml    # Deliberately broken run for Exercise DEP-2C
 └── .github/                              # Live Copilot customization config
     ├── copilot-instructions.md           # Repository-wide instructions
     ├── instructions/                     # Path-specific instructions

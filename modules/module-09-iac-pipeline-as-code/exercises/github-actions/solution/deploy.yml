@@ -1,6 +1,6 @@
-name: Deploy Infrastructure (DEP-2 solution)
+name: Deploy Infrastructure (Module 9 solution)
 
-# Reference solution for Exercise DEP-2B. Do not distribute to attendees
+# Reference solution for Exercise 9B. Do not distribute to attendees
 # ahead of the exercise -- this is the instructor/facilitator answer key.
 #
 # Plan runs on every PR and posts the plan output as a PR comment. Apply
@@ -20,7 +20,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: modules/dep-track/module-01-iac-pipeline-as-code/exercises/terraform/solution
+    working-directory: modules/module-09-iac-pipeline-as-code/exercises/terraform/solution
 
 env:
   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
@@ -68,7 +68,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const plan = fs.readFileSync('modules/dep-track/module-01-iac-pipeline-as-code/exercises/terraform/solution/plan_output.txt', 'utf8');
+            const plan = fs.readFileSync('modules/module-09-iac-pipeline-as-code/exercises/terraform/solution/plan_output.txt', 'utf8');
             const body = `#### Terraform Plan\n<details><summary>Show plan</summary>\n\n\`\`\`\n${plan}\n\`\`\`\n</details>`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,

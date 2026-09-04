@@ -195,4 +195,4 @@ actual implementation, not assumptions about what it should do.
 
 ---
 
-**Next:** [Module 9 - Wrap-up, Q&A & Next Steps →](../module-09-wrapup/)
+**Next:** [Module 9 - Infrastructure-as-Code & Pipeline-as-Code →](../module-09-iac-pipeline-as-code/)

@@ -1,6 +1,6 @@
-name: Deploy Infrastructure (DEP-2 starter)
+name: Deploy Infrastructure (Module 9 starter)
 
-# TODO (Exercise DEP-2B): use Copilot Agent mode to extend this workflow so
+# TODO (Exercise 9B): use Copilot Agent mode to extend this workflow so
 # it also:
 #   1. Runs `terraform fmt -check` and `terraform validate`
 #   2. Runs `terraform plan` and posts the plan output as a PR comment
@@ -20,7 +20,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: modules/dep-track/module-01-iac-pipeline-as-code/exercises/terraform/starter
+    working-directory: modules/module-09-iac-pipeline-as-code/exercises/terraform/starter
 
 jobs:
   setup:

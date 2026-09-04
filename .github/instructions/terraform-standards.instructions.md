@@ -5,7 +5,7 @@ applyTo: "**/*.tf"
 # Terraform Standards
 
 ## Naming
-- Resource group names: `rg-<project>-<purpose>` (e.g., `rg-copilot-workshop-dep2`)
+- Resource group names: `rg-<project>-<purpose>` (e.g., `rg-copilot-workshop-training`)
 - All other resources: `<project>-<component>` (e.g., `workshop-plan`, `workshop-orders-api`)
 - Never hardcode a resource group or location string outside of the resource
   group resource itself; reference `azurerm_resource_group.<name>.name` and
