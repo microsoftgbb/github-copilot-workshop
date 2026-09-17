@@ -1,0 +1,83 @@
+<%- include('partials/header') %>
+
+<div class="hero">
+  <h1 class="hero-title">GitHub Copilot Enterprise Workshop</h1>
+  <p class="hero-subtitle">
+    A hands-on workshop covering GitHub Copilot features, customization, and advanced agent capabilities.
+    Choose your modules and language to build your personalized agenda.
+  </p>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Build Your Agenda</h2>
+    <p>Select your preferred programming language and the modules you want to include.</p>
+  </div>
+
+  <form action="/agenda" method="POST" id="agenda-form">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <div class="language-selector">
+      <h3>Programming Language</h3>
+      <div class="language-buttons">
+        <label class="lang-btn <%= language === 'javascript' ? 'active' : '' %>">
+          <input type="radio" name="language" value="javascript" <%= language === 'javascript' ? 'checked' : '' %> />
+          <span class="lang-icon">JS</span>
+          <span>JavaScript</span>
+        </label>
+        <label class="lang-btn <%= language === 'java' ? 'active' : '' %>">
+          <input type="radio" name="language" value="java" <%= language === 'java' ? 'checked' : '' %> />
+          <span class="lang-icon">&#9749;</span>
+          <span>Java</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="modules-grid">
+      <% modules.forEach(function(module) { %>
+      <div class="module-card <%= module.optional ? '' : 'module-required' %>">
+        <div class="module-card-header">
+          <div class="module-badges">
+            <span class="badge badge-number">Module <%= module.number.toString().padStart(2, '0') %></span>
+            <% if (!module.optional) { %>
+            <span class="badge badge-required">Always Included</span>
+            <% } %>
+          </div>
+          <div class="module-meta">
+            <span class="badge badge-duration">&#9201; <%= module.duration %> min</span>
+            <span class="badge badge-format"><%= module.format %></span>
+          </div>
+        </div>
+
+        <h3 class="module-title">
+          <a href="/modules/<%= module.id %>"><%= module.title %></a>
+        </h3>
+        <p class="module-description"><%= module.description.substring(0, 150) %>...</p>
+
+        <div class="module-footer">
+          <% if (module.optional) { %>
+          <label class="checkbox-label">
+            <input type="checkbox" name="selectedModules" value="<%= module.id %>" checked />
+            <span>Include in agenda</span>
+          </label>
+          <% } else { %>
+          <span class="always-included-text">&#10003; Required module</span>
+          <% } %>
+          <% if (module.languages.length > 0) { %>
+          <div class="lang-tags">
+            <% module.languages.forEach(function(lang) { %>
+            <span class="lang-tag"><%= lang %></span>
+            <% }); %>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Build My Agenda &#8594;</button>
+    </div>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

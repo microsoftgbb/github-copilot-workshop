@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+  <h1>My Personalized Agenda</h1>
+  <p>
+    <span class="badge badge-format"><%= language === 'javascript' ? 'JS' : '&#9749;' %> <%= language === 'javascript' ? 'JavaScript' : 'Java' %></span>
+    <span class="badge badge-duration">&#9201; Total: <%= totalDuration %> min (<%= Math.round(totalDuration / 60 * 10) / 10 %> hrs)</span>
+    <span class="badge badge-number"><%= selectedModules.length %> modules</span>
+  </p>
+</div>
+
+<div class="agenda-list">
+  <% selectedModules.forEach(function(module, index) { %>
+  <div class="agenda-item">
+    <div class="agenda-number"><%= (index + 1).toString().padStart(2, '0') %></div>
+    <div class="agenda-content">
+      <div class="agenda-header">
+        <h3><a href="/modules/<%= module.id %>"><%= module.title %></a></h3>
+        <div class="agenda-badges">
+          <span class="badge badge-duration">&#9201; <%= module.duration %> min</span>
+          <span class="badge badge-format"><%= module.format %></span>
+          <% if (!module.optional) { %>
+          <span class="badge badge-required">Required</span>
+          <% } %>
+        </div>
+      </div>
+      <p><%= module.description.substring(0, 200) %>...</p>
+      <% if (module.languages.length > 0) { %>
+      <div class="lang-tags">
+        <% module.languages.forEach(function(lang) { %>
+        <span class="lang-tag <%= lang === language ? 'lang-tag-active' : '' %>"><%= lang %></span>
+        <% }); %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% }); %>
+</div>
+
+<div class="form-actions">
+  <a href="/" class="btn btn-secondary">&#8592; Modify Selection</a>
+  <a href="/modules" class="btn btn-primary">View All Modules &#8594;</a>
+</div>
+
+<%- include('partials/footer') %>
