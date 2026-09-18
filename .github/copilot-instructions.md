@@ -4,6 +4,10 @@
 
 This is a GitHub Copilot workshop repository with enterprise code samples in Java 17 (Spring Boot 3.x, Maven) and JavaScript (Node.js 18+, Express).
 
+## Mixed or Ambiguous Contexts
+
+Apply language-specific rules based on the file extension (.java → Java standards, .js/.ts → JavaScript standards). For configuration files (e.g., pom.xml, package.json), follow the ecosystem conventions of that file type.
+
 ## Coding Standards
 
 ### Java
@@ -18,7 +22,7 @@ This is a GitHub Copilot workshop repository with enterprise code samples in Jav
 ### JavaScript
 - Use ES2022+ features: optional chaining, nullish coalescing, private class fields
 - Prefer `const` over `let`; never use `var`
-- Use `async/await` (never raw Promises with `.then()`)
+- Use `async/await` (never raw Promises with `.then()`). This applies to all new code generated. When modifying existing code, convert any `.then()` chains in the affected function to async/await.
 - Use arrow functions for callbacks
 - All classes should have JSDoc comments
 - Use structured error classes extending Error
