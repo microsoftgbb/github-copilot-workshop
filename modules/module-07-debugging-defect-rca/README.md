@@ -17,6 +17,25 @@ By the end of this module, you will be able to:
 
 ---
 
+## Setup
+
+The JavaScript sample (`samples/javascript/pricingEngine.js`) has its own `package.json` with Jest as a dev dependency. Before Exercise 7B, install its dependencies once:
+
+```bash
+cd modules/module-07-debugging-defect-rca/samples/javascript
+npm install
+```
+
+Once a test file exists (either your own or one Agent mode writes for you), run it with:
+
+```bash
+npm test
+```
+
+The Java sample (`samples/java/InventoryReconciler.java`) has no build file in this module; use it for read/RCA discussion in Exercise 7A rather than compiling or running it standalone.
+
+---
+
 ## 1. Three Kinds of Defects, Three Prompting Strategies (5 min demo)
 
 | Defect Type | Signal | Prompting Strategy |
@@ -159,7 +178,7 @@ Two issues are reported: totals come out as NaN, and an invalid promo code
 the root cause of each, citing the exact lines responsible.
 ```
 
-**Step 2:** Switch to **Agent** mode and ask Copilot to write failing Jest tests first, then fix both defects and re-run the tests (see the Section 3 prompt pattern above).
+**Step 2:** Switch to **Agent** mode and ask Copilot to write failing Jest tests first, then fix both defects and re-run the tests (see the Section 3 prompt pattern above). Run `npm install` once in `samples/javascript/` beforehand if you haven't already (see Setup), then let Agent mode run `npm test` to execute the tests it writes.
 
 **Step 3:** Review the fix: does it address the root cause (uninitialized accumulator, `=== null` vs. `=== undefined`/nullish check) rather than papering over the symptom (e.g., defaulting `NaN` to `0` after the fact)?
 

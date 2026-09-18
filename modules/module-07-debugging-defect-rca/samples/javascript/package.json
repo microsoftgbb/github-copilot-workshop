@@ -1,0 +1,13 @@
+{
+  "name": "module-07-debugging-defect-rca-js-sample",
+  "version": "1.0.0",
+  "description": "JavaScript sample for the Debugging & Defect RCA workshop module",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
