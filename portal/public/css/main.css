@@ -1,0 +1,168 @@
+/* ── Design tokens ──────────────────────────────────────────────────────── */
+:root {
+  --color-bg:          #0d1117;
+  --color-surface:     #161b22;
+  --color-border:      #30363d;
+  --color-text:        #e6edf3;
+  --color-text-muted:  #8b949e;
+  --color-accent:      #238636;
+  --color-accent-hover:#2ea043;
+  --color-java:        #b07219;
+  --color-js:          #f1e05a;
+  --color-error:       #f85149;
+  --radius-sm:         4px;
+  --radius-md:         8px;
+  --transition:        0.15s ease;
+  --font-mono:         'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--color-bg);
+  color:      var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; }
+
+/* ── Utility ─────────────────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 1.5rem;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 60px;
+}
+.header-logo { font-size: 1.5rem; }
+.header-title { font-size: 1.2rem; font-weight: 600; }
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.site-footer {
+  margin-top: auto;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── Main content wrapper ────────────────────────────────────────────────── */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+}
+
+/* ── Controls bar ────────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.controls-label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ── Language toggle buttons ─────────────────────────────────────────────── */
+.language-toggle {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.lang-btn {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.lang-btn:hover { background: #21262d; border-color: #8b949e; }
+.lang-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Module card grid ────────────────────────────────────────────────────── */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+}
+.module-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.module-card:hover {
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88,166,255,0.1);
+}
+.module-card-order { font-size: 0.75rem; color: var(--color-text-muted); }
+.module-card-title { font-size: 1rem; font-weight: 600; }
+.module-card-title a { color: var(--color-text); }
+.module-card-title a:hover { color: #58a6ff; text-decoration: none; }
+.module-card-meta { font-size: 0.8rem; color: var(--color-text-muted); }
+.module-card-description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.module-card-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
+
+/* ── Language badges ─────────────────────────────────────────────────────── */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+.badge-java {
+  background: rgba(176,114,25,0.2);
+  color: var(--color-java);
+  border-color: rgba(176,114,25,0.4);
+}
+.badge-javascript {
+  background: rgba(241,224,90,0.15);
+  color: var(--color-js);
+  border-color: rgba(241,224,90,0.3);
+}
+
+/* ── State messages ──────────────────────────────────────────────────────── */
+.loading-state { color: var(--color-text-muted); padding: 2rem 0; text-align: center; }
+.error-state   { color: var(--color-error);       padding: 2rem 0; text-align: center; }
